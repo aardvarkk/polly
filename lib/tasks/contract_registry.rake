@@ -1,11 +1,22 @@
 namespace :contract_registry do
+  desc "Set whether each purchase is inside or outside the Yukon"
+  task :set_in_yukon, [:filename] => :environment do |task, args|
+    outside_ids = Location.where(name: [
+      'Other',
+      'Other-Non Yukon',
+      'Out of Territory'
+    ]).ids
+    Purchase.where(location_id: outside_ids).update_all(yukon: false)
+    Purchase.where.not(location_id: outside_ids).update_all(yukon: true)
+  end
+
   desc "Insert data from a contract registry CSV file"
   task :from_csv, [:filename] => :environment do |task, args|
   	require 'csv'
     Money.locale_backend = :currency
 
   	CSV.foreach(args[:filename], {headers: true}) do |row|
-  		p row
+  		# p row
 
   		order_number = begin
   			Integer(row['C.O. No.'])
