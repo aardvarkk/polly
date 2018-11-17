@@ -16,10 +16,10 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="active">
-            <a href="#">
+            <router-link to="/dashboard">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -58,11 +58,7 @@
       </nav>
       <div class="panel-header panel-header-sm"></div>
       <div class="content">
-        <div class="card">
-          <div class="card-body">
-            {{message}}
-          </div>
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -71,10 +67,9 @@
 
 <script>
   export default {
-    data: function () {
-      return {
-        message: "Hello Polly from Vue!!!"
-      }
+    data () {},
+    mounted () {
+      this.$router.push('dashboard')
     }
   }
 </script>
