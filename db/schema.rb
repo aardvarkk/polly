@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_16_225330) do
+ActiveRecord::Schema.define(version: 2018_11_16_231446) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,20 @@ ActiveRecord::Schema.define(version: 2018_11_16_225330) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "CAD", null: false
+    t.datetime "purchased_at", null: false
     t.index ["source_id"], name: "index_purchases_on_source_id"
+  end
+
+  create_table "source_code_mappings", force: :cascade do |t|
+    t.integer "source_id"
+    t.integer "code_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_source_code_mappings_on_category_id"
+    t.index ["code_id"], name: "index_source_code_mappings_on_code_id"
+    t.index ["source_id"], name: "index_source_code_mappings_on_source_id"
+    t.index [nil, nil], name: "index_source_code_mappings_on_source_and_code", unique: true
   end
 
   create_table "sources", force: :cascade do |t|
