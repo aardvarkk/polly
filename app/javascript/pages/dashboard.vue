@@ -17,14 +17,13 @@
   import PurchasesCategoryStackedChart from '../components/purchases-category-stacked-chart'
   export default {
     props: {
-      
+
     },
     components: {
       PurchasesChart,
       PurchasesStackedChart,
       PurchasesPieChart,
-      PurchasesDepartmentStackedChart,
-      PurchasesCategoryStackedChart
+      PurchasesDepartmentStackedChart
     },
     data () {
       return {}

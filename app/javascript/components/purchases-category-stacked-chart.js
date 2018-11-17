@@ -64,6 +64,10 @@ export default {
                         }
                     ]
                 }, {
+                    title: {
+                        display: true,
+                        text: "Spending by Category 2007 - 2018"
+                    },
                     scales: {
                         yAxes: [{
                             stacked: true,
