@@ -27,7 +27,10 @@ export default {
               scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero: true,
+                        callback: function(value, index, values) {
+                          return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', minimumFractionDigits: 0 }).format(value);
+                        }
                     }
                 }]
               }
