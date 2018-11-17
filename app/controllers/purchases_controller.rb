@@ -68,7 +68,7 @@ class PurchasesController < ApplicationController
   	end
 
 		respond_to do |format|
-		  format.json { render json: purchases.order(:id) }
+		  format.json { render json: purchases.order(:id).limit(1000) }
 		end
   end
 end
