@@ -1,0 +1,29 @@
+Speaker - Andrew
+Demo Driver - Alex
+
+- Economic Leakage.
+- It may not be the worst type of leakage you can imagine, but it's still pretty bad.
+
+- The Yukon Government spends a lot of money on procurement:
+- Accommodations for film scouts, fire extinguisher repair, four interpretive panels for the Kluane Lake Overlook.
+- How much of that money is given to Yukon-based vendors?
+- Should the Yukon Government focus more on dealing with local providers?
+- What if Yukon residents and businesses could access purchase data to seek opportunities to become a Yukon-sourced option?
+
+- The answers to these questions rely on a unified, categorized view of government procurement spending.
+- It sounds great. But it doesn't exist.
+
+- Procurement spending can happen in various ways.
+- There are over a thousand credit cards which can be used for smaller purchases.
+- There are also contracts put out to tender, some of which total over 100 million dollars in value.
+
+- How can we examine this data in a holistic way?
+- We'd like to
+
+
+-------
+
+VISA - 2% of spending in 2013 - 1000 individual cards and 16 corporate cards (about 6 million out of 300 million)
+< 25,000 -> Direct
+>= 25,000 (goods) -> TMS
+>= 75,000 (construction and services) -> TMS
