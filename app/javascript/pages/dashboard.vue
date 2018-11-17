@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <PurchasesChart/>
+      <PurchasesStackedChart/>
     </div>
   </div>
 </template>
