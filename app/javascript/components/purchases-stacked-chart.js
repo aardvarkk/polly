@@ -1,38 +1,69 @@
 import { Bar } from 'vue-chartjs'
 import PurchaseApi from '../api/purchase-api'
 
+function formatCurrency(value) {
+    return new Intl.NumberFormat(
+        'en-CA', {
+            style: 'currency',
+            currency: 'CAD',
+            minimumFractionDigits: 0
+        }).format(value);
+}
+
 export default {
     extends: Bar,
     mounted() {
         // Overwriting base render method with actual data.
 
-        PurchaseApi.aggregate('sum', { group_by: 'fiscal_year' }).then(result => {
-            const data = {}
+        PurchaseApi.aggregate('sum', { group_by: 'fiscal_year,yukon' }).then(result => {
+            const inYukonData = {}
+            const outYukonData = {}
 
             result.forEach(group => {
-                data[group.fiscal_year] = group.sum
+                if (group.yukon === true) {
+                    inYukonData[group.fiscal_year] = group.sum
+                } else {
+                    outYukonData[group.fiscal_year] = group.sum
+                }
             })
 
-            console.log(result, data);
+            console.log(inYukonData);
+            console.log(outYukonData);
 
             this.renderChart({
-                labels: Object.keys(data),
+                labels: Object.keys(inYukonData),
                 datasets: [{
-                    label: 'Purchases',
-                    backgroundColor: '#f87979',
-                    data: Object.values(data).map(x => x / 100)
-                }]
+                        label: 'In Yukon',
+                        backgroundColor: '#f87979',
+                        data: Object.values(inYukonData).map(x => x / 100)
+                    },
+                    {
+                        label: 'Out of Yukon',
+                        backgroundColor: '#909',
+                        data: Object.values(outYukonData).map(x => x / 100)
+                    }
+                ]
             }, {
                 scales: {
                     yAxes: [{
                         stacked: true,
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            callback: function(value, index, values) {
+                                return formatCurrency(value);
+                            }
                         }
                     }],
                     xAxes: [{
                         stacked: true,
                     }]
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            return formatCurrency(tooltipItem.yLabel);
+                        }
+                    }
                 }
             })
         })

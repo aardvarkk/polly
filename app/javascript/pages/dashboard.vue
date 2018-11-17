@@ -4,19 +4,22 @@
       <h1>
         Dashboard
       </h1>
-      <PurchasesChart/>
+      <!--<PurchasesChart/>-->
+      <PurchasesStackedChart/>
     </div>
   </div>
 </template>
 
 <script>
   import PurchasesChart from '../components/purchases-chart'
+  import PurchasesStackedChart from '../components/purchases-stacked-chart'
   export default {
     props: {
       
     },
     components: {
-      PurchasesChart
+      PurchasesChart,
+      PurchasesStackedChart
     },
     data () {
       return {}
