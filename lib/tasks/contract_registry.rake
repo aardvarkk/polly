@@ -47,6 +47,73 @@ namespace :contract_registry do
     Code.where(name: 'Engineering/Architectural').update(category: engarch)
     Code.where(name: 'Engineering Services').update(category: engarch)
 
+    # Environment
+    environ = Category.find_or_create_by!(name: 'Environment', parent: all)
+    Code.where(name: 'Environmental Services/ studies').update(category: environ)
+
+    # Lease/Rent
+    lease = Category.find_or_create_by!(name: 'Lease/Rent', parent: all)
+    Code.where(name: 'Equipment Rental').update(category: lease)
+    Code.where(name: 'Leased Office Space').update(category: lease)
+    Code.where(name: 'Lease or Rental of heavy equipment').update(category: lease)
+    Code.where(name: 'Lease or Rental of light duty vehicle').update(category: lease)
+    Code.where(name: 'Real Estate Leases').update(category: lease)
+    Code.where(name: 'Real Property Lease').update(category: lease)
+    Code.where(name: 'Service Contracts - Vehicle Leases').update(category: lease)
+    Code.where(name: 'Vehicle Rental').update(category: lease)
+
+    # Other
+    other = Category.find_or_create_by!(name: 'Other', parent: all)
+    Code.where(name: 'Freight - transport - courier services').update(category: other)
+    Code.where(name: 'Memberships').update(category: other)
+
+    # IT
+    it = Category.find_or_create_by!(name: 'IT', parent: all)
+    Code.where(name: 'IT System Development').update(category: it)
+    Code.where(name: 'IT System Mantenance').update(category: it)
+
+    # Community Services
+    commserv = Category.find_or_create_by!(name: 'Community Services', parent: all)
+    Code.where(name: 'Landscaping').update(category: commserv)
+    Code.where(name: 'Snow removal').update(category: commserv)
+
+    # Health & Social
+    health = Category.find_or_create_by!(name: 'Health & Social', parent: all)
+    Code.where(name: 'Physician Services under ACT').update(category: health)
+    Code.where(name: 'Health Services except physician services under ACT').update(category: health)
+
+    # Consulting
+    consult = Category.find_or_create_by!(name: 'Consulting', parent: all)
+    Code.where(name: 'General Consulting').update(category: consult)
+    Code.where(name: 'General consulting services').update(category: consult)
+    Code.where(name: 'Consulting Contracts - Engineering / Architectural').update(category: consult)
+    Code.where(name: 'Consulting Contracts - General').update(category: consult)
+
+    # Construction
+    construct = Category.find_or_create_by!(name: 'Construction', parent: all)
+    Code.where(name: 'Construction').update(category: construct)
+    Code.where(name: 'Construction - building maintenance').update(category: construct)
+    Code.where(name: 'Construction - building new').update(category: construct)
+    Code.where(name: 'Construction Contracts').update(category: construct)
+    Code.where(name: 'Construction - road').update(category: construct)
+    Code.where(name: 'Construction - utilities / infrastructure maintenance').update(category: construct)
+    Code.where(name: 'Construction - utilities / infrastructure new').update(category: construct)
+
+    # Public Relations
+    pr = Category.find_or_create_by!(name: 'Public Relations', parent: all)
+    Code.where(name: 'Communications/public relations Services').update(category: pr)
+
+    # Education & Research
+    edu = Category.find_or_create_by!(name: 'Education & Research', parent: all)
+    Code.where(name: 'Education related services').update(category: edu)
+    Code.where(name: 'Research and Development').update(category: edu)
+
+    # HR/Employment etc
+    hr = Category.find_or_create_by!(name: 'HR, Employment etc', parent: all)
+    Code.where(name: 'Employment').update(category: hr)
+    Code.where(name: 'Relocation services').update(category: hr)
+    Code.where(name: 'Training delivery').update(category: hr)
+
   end
 
   desc "Insert data from a contract registry CSV file"
