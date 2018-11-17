@@ -2,7 +2,6 @@ import { Bar } from 'vue-chartjs'
 import PurchaseApi from '../api/purchase-api'
 import DataApi from '../api/data-api'
 
-var clone = require('lodash.clone')
 
 function formatCurrency(value) {
     return new Intl.NumberFormat(
@@ -24,12 +23,10 @@ export default {
     methods: {
         rerender() {
             // Overwriting base render method with actual data.
-            const newFilter = clone(this.filter);
+            const newFilter = Object.assign({}, this.filter);
             newFilter.group_by = 'department_id,yukon'
 
             DataApi.fetch('departments').then(departments => {
-                console.log(departments)
-
                 PurchaseApi.aggregate('sum', newFilter).then(result => {
                     const inYukonData = {}
                     const outYukonData = {}
