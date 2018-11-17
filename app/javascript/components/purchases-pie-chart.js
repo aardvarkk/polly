@@ -28,6 +28,11 @@ export default {
             let inYukonData = result.find((i) => i.yukon)
             let outYukonData = result.find((i) => !i.yukon)
 
+            if (inYukonData === undefined)
+                inYukonData = { sum: 0 };
+            if (outYukonData === undefined)
+                outYukonData = { sum: 0 };
+
             let inYukonPercentage = (inYukonData.sum / (inYukonData.sum + outYukonData.sum)) * 100
             let outYukonPercentage = (outYukonData.sum / (inYukonData.sum + outYukonData.sum)) * 100
 
