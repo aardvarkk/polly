@@ -6,12 +6,11 @@ export default {
     mounted() {
         // Overwriting base render method with actual data.
 
-        PurchaseApi.fetch().then(result => {
-
+        PurchaseApi.aggregate('sum', {group_by: 'fiscal_year'}).then(result => {
             const data = {}
-            result.forEach(purchase => {
-                data[purchase.fiscal_year] = data[purchase.fiscal_year] || 0
-                data[purchase.fiscal_year] = data[purchase.fiscal_year] + purchase.amount_cents
+            
+            result.forEach(group => {
+              data[group.fiscal_year] = group.sum
             })
 
             console.log(result, data);
