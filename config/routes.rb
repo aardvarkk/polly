@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "splash", to: "splash#index"
   resources :purchases, only: :index do
   	collection do
   		get :fiscal_years

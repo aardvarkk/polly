@@ -1,6 +1,10 @@
 Speaker - Andrew
 Demo Driver - Alex
 
+PROBLEM
+A-HA MOMENT -- can a citizen see that money is being misspent?
+HOW IS THIS A SOLUTION? IS IT USEFUL?
+
 - Economic Leakage.
 - It may not be the worst type of leakage you can imagine, but it's still pretty bad.
 
@@ -13,13 +17,34 @@ Demo Driver - Alex
 - The answers to these questions rely on a unified, categorized view of government procurement spending.
 - It sounds great. But it doesn't exist.
 
-- Procurement spending can happen in various ways.
+- Procurement spending can happen in various ways:
 - There are over a thousand credit cards which can be used for smaller purchases.
 - There are also contracts put out to tender, some of which total over 100 million dollars in value.
+- Unfortunately, each of these procurement methods stores data in disparate forms which make it difficult to examine holistically.
 
-- How can we examine this data in a holistic way?
-- We'd like to
+- If we could meaningfully combine these datasets, we see two big wins:
+- 1. Citizens would have a powerful tool to search for opportunities to provide Yukon-based sourcing
+- 2. The Yukon Government would be able to compellingly demonstrate their commitment to local companies
 
+- Welcome to Polly Data (next)
+
+- Polly Data is an app to view government procurement spending.
+
+- Let's start by looking at year-over-year spending
+- What we've done is to separate all "In Yukon" spending from all "Out of Yukon" spending
+- By hovering over the chart, we're able to see at a glance how much money was spent in each category (demo)
+- We can also easily hide either category to see a better-scaled version of spending
+- Let's take a look only at spending "Out of Yukon" (demo)
+- We see a peak in the year 2013 where over 46 million dollars were spent "Out of Yukon"
+
+MORE DEMO
+
+SHOW BIG TRANSACTIONS OUT OF YUKON
+
+- Now we're not asphalt experts, but perhaps there's a Yukon-based company that would have been thrilled to receive this multi-million dollar contract?
+
+- Using Polly Data, both citizens and the government are empowered to examine procurement spending data in compelling new ways
+-
 
 -------
 
