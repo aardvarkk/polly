@@ -14,9 +14,39 @@ namespace :contract_registry do
   task :assign_categories, [:filename] => :environment do |task, args|
     all = Category.first
 
-    # Hospitality
+     # Hospitality
     hospitality = Category.find_or_create_by!(name: 'Hospitality', parent: all)
     Code.where(name: 'Accomodation').update(category: hospitality)
+    Code.where(name: 'Housing, accommodation, hotels').update(category: hospitality)
+
+     # Finance
+    finance = Category.find_or_create_by!(name: 'Finance', parent: all)
+    Code.where(name: 'Actuarial, Accounting, Financial Services').update(category: finance)
+
+    # Tourism & Culture
+    tourcult = Category.find_or_create_by!(name: 'Tourism & Culture', parent: all)
+    Code.where(name: 'Advertising').update(category: tourcult)
+    Code.where(name: 'Photographic services').update(category: tourcult)
+
+    # Services
+    service = Category.find_or_create_by!(name: 'Service', parent: all)
+    Code.where(name: 'Air Charter').update(category: service)
+    Code.where(name: 'Aircraft Charter').update(category: service)
+    Code.where(name: 'Mapping services').update(category: service)
+    Code.where(name: 'Printing services').update(category: service)
+    Code.where(name: 'Service').update(category: service)
+    Code.where(name: 'Service Contracts - Accomodation').update(category: service)
+    Code.where(name: 'Service Contracts - Aircraft Charters').update(category: service)
+    Code.where(name: 'Service Contracts - Equipment Rentals').update(category: service)
+    Code.where(name: 'Service Contracts - General').update(category: service)
+    Code.where(name: '').update(category: service)
+
+    # Engineering/Arch
+    engarch = Category.find_or_create_by!(name: 'Engineering/Architectural', parent: all)
+    Code.where(name: 'Architect Services').update(category: engarch)
+    Code.where(name: 'Engineering/Architectural').update(category: engarch)
+    Code.where(name: 'Engineering Services').update(category: engarch)
+
   end
 
   desc "Insert data from a contract registry CSV file"
