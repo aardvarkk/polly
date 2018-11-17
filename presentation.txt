@@ -39,7 +39,15 @@ Demo Driver - Alex
 
 - Now let's take a look at per-Department spending over the years
 - We see an obvious outlier: Highways and Public Works spending dwarfs all other departments, whether in or out of the Yukon
+- In the department view, we're able to filter by various criteria
+- Let's look at Education & Research
+- We notice that the Education department spends the most in the Education & Research category -- not surprising
+- But we also see that a very large proportion of their spending was done outside of Yukon
+- By hovering over bar chart, we see that about a million dollars was spent Out of Yukon
+- How much of that money is a Direct Award, as opposed to tendered?
+- By hovering again, we see that almost all of the money that was spent was direct award
 
+- Where does all of this data come from?
 - Polly Data is powered by a flexible API to retrieve and slice data in various ways
 - With it, we can rapidly aggregate procurement data across many variables, such as department, vendor, category, amount, and fiscal year. (demo?)
 
