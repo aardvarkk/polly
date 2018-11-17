@@ -34,12 +34,12 @@ export default {
                 labels: Object.keys(inYukonData),
                 datasets: [{
                         label: 'In Yukon',
-                        backgroundColor: '#f87979',
+                        backgroundColor: '#ff846e',
                         data: Object.values(inYukonData).map(x => x / 100)
                     },
                     {
                         label: 'Out of Yukon',
-                        backgroundColor: '#909',
+                        backgroundColor: '#70d5db',
                         data: Object.values(outYukonData).map(x => x / 100)
                     }
                 ]
