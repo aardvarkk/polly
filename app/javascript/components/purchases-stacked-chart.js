@@ -72,9 +72,6 @@ export default {
         })
       }
     },
-    watch: {
-      filter () { this.rerender() }
-    },
     mounted() {
       this.rerender()
     }
