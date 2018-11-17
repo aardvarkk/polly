@@ -46,7 +46,10 @@ export default {
                     mode: 'percentage',
                     precision: 1
                 },
-
+                title: {
+                    display: true,
+                    text: "% In/Out Of Yukon Purchases by Value 2007 - 2018"
+                }
             })
         })
     }
