@@ -15,20 +15,10 @@ export default {
     mounted() {
         // Overwriting base render method with actual data.
 
-        PurchaseApi.aggregate('sum', { group_by: 'fiscal_year,yukon' }).then(result => {
-            let inYukonData = 0
-            let outYukonData = 0
-            let year = 2007
+        PurchaseApi.aggregate('sum', { group_by: 'yukon' }).then(result => {
+            let inYukonData = result.find((i) => i.yukon)
+            let outYukonData = result.find((i) => !i.yukon)
 
-            result.forEach(group => {
-                if (group.fiscal_year == year) {
-                    if (group.yukon === true) {
-                        inYukonData = group.sum
-                    } else {
-                        outYukonData = group.sum
-                    }
-                }
-            })
 
             this.renderChart({
                 labels: ['In Yukon', 'Out Of Yukon'],
@@ -37,7 +27,7 @@ export default {
                         '#ff846e',
                         '#70d5db',
                     ],
-                    data: [(inYukonData / 100), (outYukonData / 100)]
+                    data: [inYukonData.sum, outYukonData.sum]
                 }, ]
             }, {
                 maintainAspectRatio: false,
