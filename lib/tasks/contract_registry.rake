@@ -31,7 +31,7 @@ namespace :contract_registry do
   		location = Location.find_or_create_by!(name: row['Community'])
   		contract_style = ContractStyle.find_or_create_by!(lettercode: row['Type'])
   		fiscal_year = row['Fiscal Year'].match(/\d{4}/)[0]
-  		amount = Money.new(row['Amount'], 'CAD')
+      amount = Money.new((row['Amount'].gsub(/[\D\.]/,'').to_f * 100).to_i, 'CAD')
   		purchased_on = Date.parse(row['Start Date'])
 
   		purchase = Purchase.find_or_initialize_by(

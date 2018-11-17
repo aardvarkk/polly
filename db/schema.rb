@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_032658) do
+ActiveRecord::Schema.define(version: 2018_11_17_035909) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -47,8 +47,27 @@ ActiveRecord::Schema.define(version: 2018_11_17_032658) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "purchases" because of following StandardError
-#   Unknown type 'reference' for column 'vendor'
+  create_table "purchases", force: :cascade do |t|
+    t.string "description"
+    t.integer "code_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "CAD", null: false
+    t.date "purchased_on", null: false
+    t.integer "department_id"
+    t.integer "vendor_id"
+    t.string "contract_number"
+    t.integer "order_number"
+    t.integer "fiscal_year"
+    t.integer "location_id"
+    t.integer "contract_style_id"
+    t.boolean "yukon"
+    t.index ["code_id"], name: "index_purchases_on_code_id"
+    t.index ["contract_style_id"], name: "index_purchases_on_contract_style_id"
+    t.index ["department_id"], name: "index_purchases_on_department_id"
+    t.index ["location_id"], name: "index_purchases_on_location_id"
+  end
 
   create_table "sources", force: :cascade do |t|
     t.string "name"
