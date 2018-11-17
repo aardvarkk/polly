@@ -28,9 +28,6 @@
   import PurchasesPieChart from '../components/purchases-pie-chart'
   import DataFilter from '../components/filters/dataFilter'
   export default {
-    props: {
-
-    },
     components: {
       PurchasesChart,
       DataFilter,
@@ -52,7 +49,6 @@
             item.rerender()
           }
         })
-        console.log('this.filter', this.filter)
       }
     },
   }
