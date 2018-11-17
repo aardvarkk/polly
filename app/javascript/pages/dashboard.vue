@@ -3,6 +3,7 @@
     <div class="card-body">
       <PurchasesStackedChart/>
       <PurchasesPieChart/>
+      <PurchasesDepartmentStackedChart/>
     </div>
   </div>
 </template>
@@ -11,6 +12,7 @@
   import PurchasesChart from '../components/purchases-chart'
   import PurchasesStackedChart from '../components/purchases-stacked-chart'
   import PurchasesPieChart from '../components/purchases-pie-chart'
+  import PurchasesDepartmentStackedChart from '../components/purchases-department-stacked-chart'
   export default {
     props: {
       
@@ -18,7 +20,8 @@
     components: {
       PurchasesChart,
       PurchasesStackedChart,
-      PurchasesPieChart
+      PurchasesPieChart,
+      PurchasesDepartmentStackedChart
     },
     data () {
       return {}
