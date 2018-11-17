@@ -43,6 +43,10 @@ export default {
                     }
                 ]
             }, {
+                title: {
+                    display: true,
+                    text: "Purchases by Fiscal Year 2007 - 2018"
+                },
                 scales: {
                     yAxes: [{
                         stacked: true,

@@ -1,14 +1,11 @@
 Speaker - Andrew
 Demo Driver - Alex
 
-PROBLEM
-A-HA MOMENT -- can a citizen see that money is being misspent?
-HOW IS THIS A SOLUTION? IS IT USEFUL?
-
 - Economic Leakage.
 - It may not be the worst type of leakage you can imagine, but it's still pretty bad.
 
-- The Yukon Government spends a lot of money on procurement:
+- The Yukon Government spends a lot of money on procurement
+- Any of that money that doesn't go to Yukon-based companies is called "economic leakage"
 - Accommodations for film scouts, fire extinguisher repair, four interpretive panels for the Kluane Lake Overlook.
 - How much of that money is given to Yukon-based vendors?
 - Should the Yukon Government focus more on dealing with local providers?
@@ -37,14 +34,23 @@ HOW IS THIS A SOLUTION? IS IT USEFUL?
 - Let's take a look only at spending "Out of Yukon" (demo)
 - We see a peak in the year 2013 where over 46 million dollars were spent "Out of Yukon"
 
-MORE DEMO
+- Moving along, we examine the percentage of purchase value made in or out of the Yukon across the years 2007 to 2018.
+- We see that approximately 10% of all procurement money spent in the last ten years was spent out of territory.
+
+- Now let's take a look at per-Department spending over the years
+- We see an obvious outlier: Highways and Public Works spending dwarfs all other departments, whether in or out of the Yukon
+
+- Polly Data is powered by a flexible API to retrieve and slice data in various ways
+- With it, we can rapidly aggregate procurement data across many variables, such as department, vendor, category, amount, and fiscal year. (demo?)
 
 SHOW BIG TRANSACTIONS OUT OF YUKON
 
-- Now we're not asphalt experts, but perhaps there's a Yukon-based company that would have been thrilled to receive this multi-million dollar contract?
+- Here's an example where we've searched for the single largest purchase outside of the Yukon
+- The purchase is for Warm Mix Asphalt Pavement Overlay and was provided by Hoban Equipment Limited from Salmon Arm, BC
+- Now we're not asphalt experts, but perhaps there's a Yukon-based company that would have been thrilled to receive this 9.2 million dollar contract?
 
-- Now that a system for combining and categorizing purchases in a coherent way has been developed, and a web app is in place to visualize the data in a myriad of ways, the
-- Using Polly Data, both citizens and the government are empowered to examine procurement spending data in compelling new ways
+- Now that a system for combining and categorizing purchases in a coherent way has been developed, and a web app is in place to visualize the data in a myriad of ways, it's easy to extend this system to provide other views into the data
+- Using Polly Data, both citizens and the government are now empowered to examine procurement spending data in compelling new ways
 
 -------
 
