@@ -4,7 +4,8 @@ Demo Driver - Alex
 - Economic Leakage.
 - It may not be the worst type of leakage you can imagine, but it's still pretty bad.
 
-- The Yukon Government spends a lot of money on procurement:
+- The Yukon Government spends a lot of money on procurement
+- Any of that money that doesn't go to Yukon-based companies is called "economic leakage"
 - Accommodations for film scouts, fire extinguisher repair, four interpretive panels for the Kluane Lake Overlook.
 - How much of that money is given to Yukon-based vendors?
 - Should the Yukon Government focus more on dealing with local providers?
@@ -36,6 +37,9 @@ Demo Driver - Alex
 MORE DEMO
 
 SHOW BIG TRANSACTIONS OUT OF YUKON
+
+- Polly Data is powered by a flexible API to retrieve and slice data in various ways
+- With it, we can rapidly aggregate procurement data across many variables, such as department, vendor, category, amount, and fiscal year. (demo?)
 
 - Now we're not asphalt experts, but perhaps there's a Yukon-based company that would have been thrilled to receive this multi-million dollar contract?
 
