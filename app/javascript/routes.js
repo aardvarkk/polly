@@ -10,12 +10,6 @@ const routes = [
     icon: 'design_app'
   },
   {
-    path: '/by-year',
-    name: 'By Year',
-    component: Yearly,
-    icon: 'files_box'
-  },
-  {
     path: '/by-department',
     name: 'By Department',
     component: Department,
