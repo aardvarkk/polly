@@ -1,4 +1,4 @@
 class Code < ApplicationRecord
 	belongs_to :source
-	has_one :category
+	belongs_to :category
 end
