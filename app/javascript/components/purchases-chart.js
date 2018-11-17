@@ -1,5 +1,6 @@
 import { Bar } from 'vue-chartjs'
 import PurchaseApi from '../api/purchase-api'
+var clone = require('lodash.clone')
 
 function formatCurrency(value) {
     return new Intl.NumberFormat(
@@ -13,13 +14,19 @@ function formatCurrency(value) {
 export default {
     extends: Bar,
     props: {
-        type: Array,
-        default () { return [] },
+        filter: {
+            type: Object,
+            default () { return {} },
+        }
     },
     mounted() {
         // Overwriting base render method with actual data.
 
-        PurchaseApi.aggregate('sum', { group_by: 'fiscal_year' }).then(result => {
+        const newFilter = clone(this.filter);
+        newFilter.group_by = 'fiscal_year'
+
+        PurchaseApi.aggregate('sum', newFilter).then(result => {
+
             const data = {}
 
             result.forEach(group => {
