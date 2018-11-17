@@ -12,6 +12,10 @@ function formatCurrency(value) {
 
 export default {
     extends: Bar,
+    props: {
+        type: Array,
+        default () { return [] },
+    },
     mounted() {
         // Overwriting base render method with actual data.
 
@@ -26,10 +30,6 @@ export default {
                     outYukonData[group.fiscal_year] = group.sum
                 }
             })
-
-            console.log(inYukonData);
-            console.log(outYukonData);
-
             this.renderChart({
                 labels: Object.keys(inYukonData),
                 datasets: [{

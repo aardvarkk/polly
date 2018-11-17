@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :vendors, only: :index
   resources :contract_styles, only: :index
   resources :locations, only: :index
+  resources :categories, only: :index
   root to: 'spa#show'
 end

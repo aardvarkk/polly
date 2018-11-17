@@ -8,6 +8,14 @@ class PurchasesController < ApplicationController
   def index
   	purchases = Purchase.all
 
+    if params[:limit]
+      purchases = purchases.limit(params[:limit].to_i)
+    end
+
+    if params[:order_by]
+      purchases = purchases.order(params[:order_by].split(',').join(' '))
+    end
+
   	if params[:amount_cents]
   		case params[:amount_cents].keys.first
   		when 'lt'
