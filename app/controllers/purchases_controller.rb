@@ -67,8 +67,14 @@ class PurchasesController < ApplicationController
   		purchases = purchases.where(yukon: params[:yukon].split(','))
   	end
 
+  	if params[:sum] == 'true'
+  		result = purchases.sum(:amount_cents)
+  	else
+  		result = purchases.order(:id)
+  	end
+
 		respond_to do |format|
-		  format.json { render json: purchases.order(:id).limit(1000) }
+		  format.json { render json: result }
 		end
   end
 end
