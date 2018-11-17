@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
   	end
 
   	if params[:category_id]
-  		purchases = purchases.joins({ code: :category }).where(codes: { category_id: params[:category_id].split(',') })
+  		purchases = purchases.joins(:code).where(codes: { category_id: params[:category_id].split(',') })
   	end
 
   	if params[:code_id]
@@ -75,7 +75,7 @@ class PurchasesController < ApplicationController
 
   	if params[:agg]
   		if params[:group_by]
-  			purchases = purchases.joins({ code: :category }).group(*params[:group_by].split(',').map(&:to_sym))
+  			purchases = purchases.joins(:code).group(*params[:group_by].split(',').map(&:to_sym))
   		end
 
   		case params[:agg]
