@@ -61,26 +61,32 @@ namespace :contract_registry do
     Code.where(name: 'Real Property Lease').update(category: lease)
     Code.where(name: 'Service Contracts - Vehicle Leases').update(category: lease)
     Code.where(name: 'Vehicle Rental').update(category: lease)
+    Code.where(name: 'Chattel Lease').update(category: lease)
 
     # Other
     other = Category.find_or_create_by!(name: 'Other', parent: all)
     Code.where(name: 'Freight - transport - courier services').update(category: other)
     Code.where(name: 'Memberships').update(category: other)
+    Code.where(name: 'Installation of Goods/Equipment').update(category: other)
+    Code.where(name: 'Custodial and related services').update(category: other)
+    Code.where(name: 'Graphic design services').update(category: other)
 
     # IT
     it = Category.find_or_create_by!(name: 'IT', parent: all)
     Code.where(name: 'IT System Development').update(category: it)
-    Code.where(name: 'IT System Mantenance').update(category: it)
+    Code.where(name: 'IT System Maintenance').update(category: it)
 
     # Community Services
     commserv = Category.find_or_create_by!(name: 'Community Services', parent: all)
     Code.where(name: 'Landscaping').update(category: commserv)
     Code.where(name: 'Snow removal').update(category: commserv)
+    Code.where(name: 'Waste management').update(category: commserv)
 
     # Health & Social
     health = Category.find_or_create_by!(name: 'Health & Social', parent: all)
     Code.where(name: 'Physician Services under ACT').update(category: health)
     Code.where(name: 'Health Services except physician services under ACT').update(category: health)
+    Code.where(name: 'Social Services').update(category: health)
 
     # Consulting
     consult = Category.find_or_create_by!(name: 'Consulting', parent: all)
@@ -88,6 +94,7 @@ namespace :contract_registry do
     Code.where(name: 'General consulting services').update(category: consult)
     Code.where(name: 'Consulting Contracts - Engineering / Architectural').update(category: consult)
     Code.where(name: 'Consulting Contracts - General').update(category: consult)
+    Code.where(name: 'Professional Services - others').update(category: consult)
 
     # Construction
     construct = Category.find_or_create_by!(name: 'Construction', parent: all)
