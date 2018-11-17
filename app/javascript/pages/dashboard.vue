@@ -29,7 +29,7 @@
   import DataFilter from '../components/filters/dataFilter'
   export default {
     props: {
-      
+
     },
     components: {
       PurchasesChart,
