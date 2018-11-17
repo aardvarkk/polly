@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "splash", to: "splash#index"
   resources :purchases, only: :index do
   	collection do
   		get :fiscal_years
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
   resources :vendors, only: :index
   resources :contract_styles, only: :index
   resources :locations, only: :index
+  resources :categories, only: :index
   root to: 'spa#show'
 end
