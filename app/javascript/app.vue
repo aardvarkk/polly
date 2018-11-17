@@ -3,25 +3,18 @@
   <div class="wrapper">
     <div class="sidebar" data-color="blue">
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text pl-2 logo-normal">
+        <router-link to="/dashboard" class="simple-text pl-2 logo-normal">
           Polly Data
-        </a>
-        <div class="navbar-minimize">
+        </router-link>
+        <!-- <div class="navbar-minimize">
           <button id="minimizeSidebar" class="btn btn-simple btn-icon btn-neutral btn-round">
           <i class="now-ui-icons text_align-center visible-on-sidebar-regular"></i>
           <i class="now-ui-icons design_bullet-list-67 visible-on-sidebar-mini"></i>
           </button>
-        </div>
+        </div> -->
       </div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="active">
-            <router-link to="/dashboard">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </router-link>
-          </li>
-        </ul>
+        <SystemNavigation />
       </div>
     </div>
     <div class="main-panel">
@@ -35,7 +28,9 @@
               <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <router-link :to="currentRoute.path" class="navbar-brand">
+              {{currentRoute.name}}
+            </router-link>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -43,7 +38,7 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
+            <!-- <form>
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <span class="input-group-append">
@@ -52,7 +47,7 @@
                   </span>
                 </span>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
       </nav>
@@ -66,7 +61,16 @@
 </template>
 
 <script>
+  import SystemNavigation from 'components/system-navigation'
   export default {
+    components: {
+      SystemNavigation
+    },
+    computed: {
+      currentRoute () {
+        return this.$route;
+      }
+    },
     mounted () {
       this.$router.push('dashboard')
     }
