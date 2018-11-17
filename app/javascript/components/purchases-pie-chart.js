@@ -12,8 +12,11 @@ function formatCurrency(value) {
 
 export default {
     extends: Pie,
+    props: {
+        type: Array,
+        default () { return [] },
+    },
     mounted() {
-        // Overwriting base render method with actual data.
 
         PurchaseApi.aggregate('sum', { group_by: 'yukon' }).then(result => {
             let inYukonData = result.find((i) => i.yukon)
@@ -23,8 +26,6 @@ export default {
             let outYukonPercentage = (outYukonData.sum / (inYukonData.sum + outYukonData.sum)) * 100
 
             this.renderChart({
-
-
                 labels: ['In Yukon', 'Out Of Yukon'],
                 datasets: [{
                     backgroundColor: [
