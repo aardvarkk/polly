@@ -19,9 +19,9 @@ export default {
             default () { return {} },
         }
     },
-    mounted() {
-
-        const newFilter = clone(this.filter);
+    methods: {
+      rerender () {
+        const newFilter = Object.assign({}, this.filter)
         newFilter.group_by = "yukon"
 
         PurchaseApi.aggregate('sum', newFilter).then(result => {
@@ -49,5 +49,9 @@ export default {
 
             })
         })
+      },
+    },
+    mounted() {
+      this.rerender()
     }
 }
