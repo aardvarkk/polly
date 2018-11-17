@@ -73,11 +73,34 @@ class PurchasesController < ApplicationController
   		purchases = purchases.where(yukon: params[:yukon].split(','))
   	end
 
-  	if params[:sum] == 'true'
+  	if params[:agg]
   		if params[:group_by]
   			purchases = purchases.joins({ code: :category }).group(*params[:group_by].split(',').map(&:to_sym))
   		end
-  		result = purchases.sum(:amount_cents)
+
+  		case params[:agg]
+  		when "sum"
+  			result = purchases.count(:amount_cents)
+  		when "avg"
+  			result = purchases.average(:amount_cents)
+  		when "min"
+  			result = purchases.minimum(:amount_cents)
+  		when "max"
+  			result = purchases.maximum(:amount_cents)
+  		when "count"
+  			result = purchases.count(:amount_cents)
+  		end
+
+  		if result.is_a? Hash
+  			result = result.map do |array_key, agg|
+  				h = params[:group_by].split(',').zip([*array_key]).to_h
+  				h[params[:agg].to_sym] = agg
+  				h
+  			end
+  		else
+  			result = [{ params[:agg].to_sym => result }]
+  		end
+
   	else
   		result = purchases.order(:id)
   	end
