@@ -19,15 +19,19 @@ export default {
             let inYukonData = result.find((i) => i.yukon)
             let outYukonData = result.find((i) => !i.yukon)
 
+            let inYukonPercentage = (inYukonData.sum / (inYukonData.sum + outYukonData.sum)) * 100
+            let outYukonPercentage = (outYukonData.sum / (inYukonData.sum + outYukonData.sum)) * 100
 
             this.renderChart({
+
+
                 labels: ['In Yukon', 'Out Of Yukon'],
                 datasets: [{
                     backgroundColor: [
                         '#ff846e',
                         '#70d5db',
                     ],
-                    data: [inYukonData.sum, outYukonData.sum]
+                    data: [inYukonPercentage.toFixed(0), outYukonPercentage.toFixed(0)]
                 }, ]
             }, {
                 maintainAspectRatio: false,
