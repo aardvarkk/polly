@@ -24,6 +24,9 @@ export default {
                 }]
             },
             {
+              legend: {
+                display: false
+              },
               scales: {
                 yAxes: [{
                     ticks: {
