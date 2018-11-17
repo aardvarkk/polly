@@ -80,7 +80,7 @@ class PurchasesController < ApplicationController
 
   		case params[:agg]
   		when "sum"
-  			result = purchases.count(:amount_cents)
+  			result = purchases.sum(:amount_cents)
   		when "avg"
   			result = purchases.average(:amount_cents)
   		when "min"
