@@ -1,4 +1,10 @@
 class PurchasesController < ApplicationController
+	def fiscal_years
+		respond_to do |format|
+		  format.json { render json: Purchase.pluck('DISTINCT fiscal_year').sort }
+		end
+	end
+
   def index
   	purchases = Purchase.all
 
