@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
   	end
 
   	if params[:category_id]
-  		purchases = purchases.joins(:category).where(codes: { category_id: params[:category_id].split(',') })
+  		purchases = purchases.joins({ code: :category }).where(codes: { category_id: params[:category_id].split(',') })
   	end
 
   	if params[:code_id]
@@ -74,6 +74,9 @@ class PurchasesController < ApplicationController
   	end
 
   	if params[:sum] == 'true'
+  		if params[:group_by]
+  			purchases = purchases.joins({ code: :category }).group(*params[:group_by].split(',').map(&:to_sym))
+  		end
   		result = purchases.sum(:amount_cents)
   	else
   		result = purchases.order(:id)
