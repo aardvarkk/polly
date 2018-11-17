@@ -1,6 +1,16 @@
 import { Bar } from 'vue-chartjs'
 import PurchaseApi from '../api/purchase-api'
 
+function formatCurrency(value) {
+  return new Intl.NumberFormat(
+    'en-CA',
+    {
+      style: 'currency',
+      currency: 'CAD',
+      minimumFractionDigits: 0
+    }).format(value);
+}
+
 export default {
     extends: Bar,
     mounted() {
@@ -32,10 +42,17 @@ export default {
                     ticks: {
                         beginAtZero: true,
                         callback: function(value, index, values) {
-                          return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', minimumFractionDigits: 0 }).format(value);
+                          return formatCurrency(value);
                         }
                     }
                 }]
+              },
+              tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    return formatCurrency(tooltipItem.yLabel);
+                  }
+                }
               }
             })
         })
