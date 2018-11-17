@@ -43,8 +43,8 @@ SHOW BIG TRANSACTIONS OUT OF YUKON
 
 - Now we're not asphalt experts, but perhaps there's a Yukon-based company that would have been thrilled to receive this multi-million dollar contract?
 
+- Now that a system for combining and categorizing purchases in a coherent way has been developed, and a web app is in place to visualize the data in a myriad of ways, the
 - Using Polly Data, both citizens and the government are empowered to examine procurement spending data in compelling new ways
--
 
 -------
 
