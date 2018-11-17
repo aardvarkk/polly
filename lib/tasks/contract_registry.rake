@@ -10,6 +10,15 @@ namespace :contract_registry do
     Purchase.where.not(location_id: outside_ids).update_all(yukon: true)
   end
 
+  desc "Assign categories for contract registry codes"
+  task :assign_categories, [:filename] => :environment do |task, args|
+    all = Category.first
+
+    # Hospitality
+    hospitality = Category.find_or_create_by!(name: 'Hospitality', parent: all)
+    Code.where(name: 'Accomodation').update(category: hospitality)
+  end
+
   desc "Insert data from a contract registry CSV file"
   task :from_csv, [:filename] => :environment do |task, args|
   	require 'csv'
