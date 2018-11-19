@@ -2,15 +2,7 @@ import { Bar } from 'vue-chartjs'
 import PurchaseApi from '../api/purchase-api'
 import DataApi from '../api/data-api'
 
-
-function formatCurrency(value) {
-    return new Intl.NumberFormat(
-        'en-CA', {
-            style: 'currency',
-            currency: 'CAD',
-            minimumFractionDigits: 0
-        }).format(value);
-}
+import { formatCurrency } from '../utils/formatter.js'
 
 export default {
     extends: Bar,
