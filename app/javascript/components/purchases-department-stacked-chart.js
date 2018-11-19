@@ -2,7 +2,7 @@ import { Bar } from 'vue-chartjs'
 import PurchaseApi from '../api/purchase-api'
 import DataApi from '../api/data-api'
 
-import { formatCurrency } from '../utils/formatter.js'
+import { formatCurrency } from '../utils/formatter'
 
 export default {
     extends: Bar,
