@@ -28,7 +28,10 @@ export default {
             let outYukonPercentage = (outYukonData.sum / (inYukonData.sum + outYukonData.sum)) * 100
 
             this.renderChart({
-                labels: ['In Yukon', 'Out Of Yukon'],
+                labels: [
+                  `In Yukon (${formatCurrency(inYukonData.sum)})`, 
+                  `Out Of Yukon (${formatCurrency(outYukonData.sum)})`
+                ],
                 datasets: [{
                     backgroundColor: [
                         '#ff846e',
