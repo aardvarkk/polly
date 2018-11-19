@@ -24,6 +24,10 @@ export default {
                     const outYukonData = {}
 
                     result.forEach(group => {
+                      // Need to ensure that in/out data has the same departments
+                      inYukonData[group.department_id] = inYukonData[group.department_id] || 0
+                      outYukonData[group.department_id] = outYukonData[group.department_id] || 0
+                      
                         if (group.yukon === true) {
                             inYukonData[group.department_id] = group.sum
                         } else {
@@ -31,11 +35,12 @@ export default {
                         }
                     })
 
-                    let departmentKeys = [];
+                    const departmentKeys = []
+
                     Object.keys(inYukonData).forEach(k => {
                         departments.forEach(x => {
-                            if (k == x.id) {
-                                departmentKeys.push(x.name)
+                            if (k == x.id && (inYukonData[k] || outYukonData[k])) {
+                              departmentKeys.push(x.name)
                             }
                         })
                     });
